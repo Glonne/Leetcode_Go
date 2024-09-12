@@ -1,2 +1,2 @@
 # Leetcode_Go
-9月12日起记录自己刷题过程
+记录自己Leetcode刷题过程
