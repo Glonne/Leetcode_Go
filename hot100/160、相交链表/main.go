@@ -30,7 +30,6 @@ func main() {
 		fmt.Println("两个链表无相交节点")
 	}
 }
-
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	vis := map[*ListNode]bool{}
 	for tmp := headA; tmp != nil; tmp = tmp.Next {
