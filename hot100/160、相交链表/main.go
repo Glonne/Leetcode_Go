@@ -21,8 +21,20 @@ func createList(list []int) *ListNode {
 func main() {
 	ListA := []int{4, 1, 8, 4, 5}
 	ListB := []int{5, 6, 1, 8, 4, 5}
+	commonPart := []int{8, 4, 5}
 	headA := createList(ListA)
+	curA := headA
+	for curA.Next != nil {
+		curA = curA.Next
+	}
 	headB := createList(ListB)
+	curB := headB
+	for curB.Next != nil {
+		curB = curB.Next
+	}
+	commonHead := createList(commonPart)
+	curA.Next = commonHead
+	curB.Next = commonHead
 	intersectVal := getIntersectionNode(headA, headB)
 	if intersectVal != nil {
 		fmt.Printf("%d", intersectVal.Val)

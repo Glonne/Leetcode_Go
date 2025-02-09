@@ -20,27 +20,22 @@ func createList(list []int) *ListNode {
 }
 func main() {
 	ListA := []int{4, 1, 8, 4, 5}
-	ListB := []int{5, 6, 1, 8, 4, 5}
 	headA := createList(ListA)
-	headB := createList(ListB)
-	intersectVal := getIntersectionNode(headA, headB)
-	if intersectVal != nil {
-		fmt.Printf("%d", intersectVal.Val)
-	} else {
-		fmt.Println("两个链表无相交节点")
+	headA_r := reverseList(headA)
+	for tmp := headA_r; tmp != nil; tmp = tmp.Next {
+		fmt.Printf("The reverse list is %d\n", tmp.Val)
 	}
 }
-func getIntersectionNode(headA, headB *ListNode) *ListNode {
-	vis := map[*ListNode]bool{}
-	for tmp := headA; tmp != nil; tmp = tmp.Next {
-		vis[tmp] = true
+func reverseList(head *ListNode) *ListNode {
+	var prev *ListNode
+	curr := head
+	for curr != nil {
+		next := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = next
 	}
-	for tmp := headB; tmp != nil; tmp = tmp.Next {
-		if vis[tmp] {
-			return tmp
-		}
-	}
-	return nil
+	return prev
 }
 
-// 给你两个单链表的头节点 headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 null 。
+// 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
