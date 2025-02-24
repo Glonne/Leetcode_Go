@@ -1,3 +1,5 @@
 {
     "go.goproxy": "https://goproxy.cn,direct",
+    "go.goroot": "C:\\Users\\Golone\\sdk\\go1.22.8",   
+    "go.gopath": "C:\\Users\\Golone\\go"                
 }
